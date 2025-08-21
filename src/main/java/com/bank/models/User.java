@@ -1,22 +1,26 @@
 package com.bank.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 
     private int id;
     private String name;
-    private String accounts;
+    private List<BankAccount> accounts;
 
-    public User(int id, String name, String accounts) {
+    public User(String id, String name, List<BankAccount> accounts) {
         this.id = id;
         this.name = name;
-        this.accounts = accounts;
+        this.accounts = new ArrayList<>();
     }
 
-    public String getAccounts() {
+    public void addAccount(BankAccount account) {
+        accounts.add(account);
+    }
+
+    public List<BankAccount> getAccounts() {
         return accounts;
     }
-
-    public void addAccount() {}
-//    public void removeAccount() {}
 
 }
