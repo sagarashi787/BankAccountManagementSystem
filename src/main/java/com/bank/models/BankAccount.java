@@ -49,10 +49,14 @@ public class BankAccount {
     public double deposit() {
         return balance + transactions;
     }
+
     public double withdraw() {
         return balance - transactions;
     }
+
     public int addTransaction() {
         transactions++;
+        return 0;
     }
 }
+
