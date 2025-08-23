@@ -1,62 +1,55 @@
 package com.bank.models;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+
 public class BankAccount {
 
     private String accountNumber;
     private double balance;
-    private String user;
+    private String owner;
     private int transactions;
 
-    public BankAccount(String accountNumber, double balance, String user, int transactions) {
+    public BankAccount(String accountNumber, String owner, double balance, int transactions) {
         this.accountNumber = accountNumber;
-        this.balance = balance;
-        this.user = user;
-        this.transactions = transactions;
+        this.owner = owner;
+        this.balance = BigDecimal.ZERO;
+        this.transactions = new ArrayList<>();
+    }
+
+    public void deposit(BigDecimal amount) {
+        balance = balance.add(amount);
+        // Здесь нужно добавить создание транзакции
+    }
+
+    public void withdraw(BigDecimal amount) {
+        if (balance.compareTo(amount) >= 0) {
+            balance = balance.subtract(amount);
+            // Здесь нужно добавить создание транзакции
+        } else {
+            throw new IllegalArgumentException("Недостаточно средств");
+        }
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void addTransaction(Transaction transaction) {
+        transactions.add(transaction);
     }
 
     public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
+    public String getOwner() {
+        return owner;
     }
 
     public int getTransactions() {
         return transactions;
     }
-
-    public void setTransactions(int transactions) {
-        this.transactions = transactions;
-    }
-
-    public double deposit() {
-        return balance + transactions;
-    }
-
-    public double withdraw() {
-        return balance - transactions;
-    }
-
-    public int addTransaction() {
-        transactions++;
-        return 0;
-    }
 }
+
 

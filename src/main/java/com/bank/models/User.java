@@ -5,14 +5,21 @@ import java.util.List;
 
 public class User {
 
-    private int id;
+    private int idUser;
     private String name;
     private List<BankAccount> accounts;
 
-    public User(String id, String name, List<BankAccount> accounts) {
-        this.id = id;
+    public User(int idUser, String name) {
+        this.idUser = idUser;
         this.name = name;
-        this.accounts = new ArrayList<>();
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void addAccount(BankAccount account) {
@@ -22,5 +29,7 @@ public class User {
     public List<BankAccount> getAccounts() {
         return accounts;
     }
+
+
 
 }
