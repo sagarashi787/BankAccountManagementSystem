@@ -2,7 +2,7 @@ package com.bank.models;
 
 public class Transaction {
 
-    private int idtransaction;
+    private int idTransaction;
     private int amount;
     private String type;
     private int date;
