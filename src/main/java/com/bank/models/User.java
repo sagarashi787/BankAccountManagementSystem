@@ -12,10 +12,7 @@ public class User {
     public User(int idUser, String name) {
         this.idUser = idUser;
         this.name = name;
-    }
-
-    public int getIdUser() {
-        return idUser;
+        this.accounts = new ArrayList<>();
     }
 
     public String getName() {
@@ -29,7 +26,4 @@ public class User {
     public List<BankAccount> getAccounts() {
         return accounts;
     }
-
-
-
 }
