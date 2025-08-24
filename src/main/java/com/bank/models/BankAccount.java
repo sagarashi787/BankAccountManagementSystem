@@ -2,13 +2,14 @@ package com.bank.models;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
 public class BankAccount {
 
     private String accountNumber;
-    private double balance;
+    private BigDecimal balance;
     private String owner;
-    private int transactions;
+    private List<Transaction> transactions;
 
     public BankAccount(String accountNumber, String owner, double balance, int transactions) {
         this.accountNumber = accountNumber;
@@ -47,7 +48,7 @@ public class BankAccount {
         return owner;
     }
 
-    public int getTransactions() {
+    public List<Transaction> getTransactions() {  // Возвращаем список, а не int
         return transactions;
     }
 }
