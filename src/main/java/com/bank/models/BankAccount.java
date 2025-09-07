@@ -18,6 +18,11 @@ public class BankAccount {
         this.transactions = new ArrayList<>();
     }
 
+    public BankAccount(String accountNumber, String name) {
+        this.accountNumber = accountNumber;
+        this.owner = name;
+    }
+
     public void deposit(BigDecimal amount) {
         balance = balance.add(amount);
         // Здесь нужно добавить создание транзакции
